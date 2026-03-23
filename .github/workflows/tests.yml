@@ -1,25 +1,24 @@
-name: Testes Automáticos
+name: Testes JS (Jest)
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
 
 jobs:
-  testar:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Baixar código
         uses: actions/checkout@v4
 
-      - name: Instalar PHP
-        uses: shivammathur/setup-php@v2
+      - name: Instalar Node
+        uses: actions/setup-node@v4
         with:
-          php-version: 8.2
+          node-version: 18
 
       - name: Instalar dependências
-        run: composer install || true
+        run: npm install
 
       - name: Rodar testes
-        run: echo "Sem testes ainda"
+        run: npm test
