@@ -1,15 +1,15 @@
-name: Testes JS (Jest)
+name: Testes JS
 
 on:
   push:
     branches: [ "main" ]
 
 jobs:
-  test:
+  test-js:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar código
+      - name: Checkout
         uses: actions/checkout@v4
 
       - name: Instalar Node
